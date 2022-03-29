@@ -174,7 +174,7 @@ public class EditWindow extends UiPart<Stage> {
         // First 2 are empty because they are for
         // 0: command word
         // 1: index, which has no prefix.
-        String[] prefixes = {"", "", "n/", "p/", "a/", "e"};
+        String[] prefixes = {"", "", "n/", "p/", "a/", "e/"};
         String[] personFields = {"edit", index, name, phone, address, email};
 
         if (index.equals("")) {
@@ -190,6 +190,7 @@ public class EditWindow extends UiPart<Stage> {
         // Craft the user input to be fed into executeCommand
         for (int i = 0; i < personFields.length; i++) {
             if (!personFields[i].equals("")) {
+                System.out.println(personFields[i]);
                 userInput.append(prefixes[i]).append(personFields[i]).append(" ");
             }
         }
