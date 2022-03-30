@@ -33,25 +33,39 @@ Given below are my contributions to the project.
   - **What it does**: Allows users to add a new contact into ModuleMateFinder.
   - **Justification**: This feature improves the product significantly as not all users will be familiar with CLI application, or simply do not want to memorise the commands. Having a GUI way to add contacts provides ease of use for the users. Furthermore, it can execute multiple commands at once.
   - **Highlights**: This feature was challenging as it required good understanding of JavaFX, which required digging deeper into JavaFX and how it integrates with Java. Furthermore, styling is non-trivial.
-  - **Enhancements**: Extended the feature to allow for adding _optional_ fields like `Module`, `Status`[(PR #72)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/72) and `Comment`[(PR #88)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/88). Binded the `ENTER` key to act as a `Submit` button, when mandatory fields are added.
+  - **Enhancements**: Extended the feature to allow for adding _optional_ fields like `Module`, `Status`[(PR #72)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/72) and `Comment`[(PR #88)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/88). Binded the `ENTER` key to act as a `Submit` button, when mandatory fields are added. Reset focus on first `TextField` when window loses focus [(PR #102)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/102)
   - **Credits**: Some code reuse from `HelpWindow`, which served as the _baseline_ to start implementation of `AddWindow`
+
 
 - **New Feature**: Added GUI, `EditWindow` for editing a Person within ModuleMateFinder. [(PR #81)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/81)
   - **What it does**: Allows users to easily edit a contact in ModuleMateFinder
   - **Justification**: Not all users are familiar with the command syntax and would prefer something more guided. This provides that guidance while still giving the benefit of typing fast.
   - **Highlights**: This feature is similar to `AddWindow`, so only a few changes needed to be made.
+  - **Enhancements**: Reset focus onto first `TextField` when window loses focus. Binded `ENTER` key to act as a `Submit` button, as long as the given input is valid. [(PR #102)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/102)
   - **Credits**: Some code reuse from `HelpWindow`, which served as the _baseline_ to start implementation of `EditWindow`
 
+
+- **GUI Update**: Recoloured GUI, and moved certain fields around. [(PR #112)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/112)
+  - **What it does**: Makes ModuleMateFinder more distinct and recognisable with a new colour theme. 
+  - **Justification**: Less semblance to `AddressBook 3`, so it has a more original feel to it.
+  - **Highlights**: Settling on a colour is not easy, and finding matching colours took quite a lot of time.
+
 - **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=bakano98&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2022-02-18&tabOpen=true&tabType=authorship&tabAuthor=bakano98&tabRepo=AY2122S2-CS2103T-T13-4%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=functional-code&authorshipIsBinaryFileTypeChecked=false)
-- **Project Management**: TBD
+- **Project Management**: 
+  - Ensure team was on track
+  - Ensure I kept everyone up to date with what I was doing
+  - Tried to keep up and help with features that were lagging behind
 - **Documentation**:
   - User Guide:
     - Set up overall UG style [(PR #1)](https://github.com/AY2122S2-CS2103T-T13-4/tp/commit/1aa81e2c5590653463a84a972c678f447c979a29)
     - Set up Quick Jump for UG [(PR #1)](https://github.com/AY2122S2-CS2103T-T13-4/tp/commit/1aa81e2c5590653463a84a972c678f447c979a29)
     - Added `AddWindow` image and functionality [(PR #77)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/77)
+    - Added `EditWindow` image and functionality [(PR #81)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/81)
+    - Updated UG according to peer feedback [(PR #100)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/100)
+    - Updated UG according to CS2101 feedback [(PR #112)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/112/commits/f1ec6be1bdb557101201b979c440d769ff4cff61)
   - Developer Guide:
     - Add MSS for `status` and `filter` [(PR #27)](https://github.com/AY2122S2-CS2103T-T13-4/tp/commit/a13e9b086d85dd607421835135e742ff67b542cd)
-    - Update UML diagram for Ui component and add information regarding the additions (`EditWindow`, `AddWindow`)
+    - Updated UML diagram for Ui component and add information regarding the additions (`EditWindow`, `AddWindow`), also added an activity diagram, sequence diagram for `add` [(PR #84)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/84)
   - README:
     - Did the mockup UI and the description of ModuleMateFinder [here](https://github.com/AY2122S2-CS2103T-T13-4/tp/commit/f054e1d2871e6e5904d473b9203e7874340f0633) 
 
@@ -66,7 +80,9 @@ Given below are my contributions to the project.
 - Reviewed some PRs by Wei Ming and Benjamin
   - Non-trivial PRs reviewed and commented on for Wei Ming
     - [PR #44](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/44)
+    - [PR #78](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/78)
   - Non-trivial PRs reviewed and commented on for Benjamin
+    - [PR #65](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/65)
     - [PR #83](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/83)
 - Verified on [forum](https://github.com/nus-cs2103-AY2122S2/forum/issues/210) regarding GUI additions
 
