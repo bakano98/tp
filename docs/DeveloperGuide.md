@@ -286,7 +286,7 @@ commands (`status`, `comment`, `addmodule`) is done by checking if the given inp
 
 Step 4: If they are valid, we pass the execution to `Logic` to handle the adding of a `Person`. 
 
-Step 5: After a `Person` is added, retrieve the last index from `PersonList`, then pass the user inputs for `status` and/or `addmodule` into `Logic` again to execute the commands
+Step 5: After a `Person` is added, retrieve the last index from `PersonList`, then pass the user inputs for `status`, `comment`, and/or `addmodule` into `Logic` again to execute the commands
 
 The following activity diagram shows how a `Person` with `Status` and `Module` is added when the given command is `add` or when the user opens `AddWindow`
 ![GuiAddActivityDiagram](images/GuiAddActivityDiagram.png)
