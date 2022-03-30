@@ -104,10 +104,16 @@ The Sequence Diagram below illustrates the interactions within the `Logic` compo
 
 ![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
 
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+</div>
+
 The Sequence Diagram below illustrates the interactions from the `Logic` component for the `execute("add")`
 ![Interactions Inside the Logic Component for the `add` Command](images/AddNoParamsSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+This opens up a `AddWindow`. The execution essentially stops there, and waits for further user input.
+
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
 Here are the other classes in `Logic` (omitted from the class diagram above) that are used for parsing a user command:
@@ -276,7 +282,7 @@ Step 2: User input is strung together to follow the proper `Command` format, whi
 the rest of the execution.  
 
 Step 3: `AddWindow` allows for the execution of multiple commands within a single window. Executing multiple 
-commands (`status`, `addmodule`) is done by checking if the given inputs are valid. 
+commands (`status`, `comment`, `addmodule`) is done by checking if the given inputs are valid. 
 
 Step 4: If they are valid, we pass the execution to `Logic` to handle the adding of a `Person`. 
 

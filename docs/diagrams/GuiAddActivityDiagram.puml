@@ -10,16 +10,23 @@ else ([User types 'add' or opens AddWindow])
     :AddWindow is opened;
     :User inputs all fields;
     :User submits the information;
+
     while () is ([User input is invalid])
         :Output invalid message;
         :User submits new input;
     endwhile ([User input is valid or pressed cancel])
     if () then ([User pressed 'Cancel'])
+        stop
     else([else])
         :Add new Person;
-        :Add Status to new Person;
-        :Add Module to new Person;
+        if () then ([optional fields present])
+            :Add optional fields;
+        else([else])
+            stop
+        endif
     endif
 endif
+
+
 stop
 @enduml
