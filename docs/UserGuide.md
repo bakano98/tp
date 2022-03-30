@@ -40,9 +40,21 @@ This section lists down all the features available in MMF. You can click on any 
 -----------------------------------------------
 ## Quick start
 
-1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `ModuleMateFinder.jar` from [here](https://github.com/AY2122S2-CS2103T-T13-4/tp/releases).
+<div markdown="block" class="alert alert-info">
+
+**:information_source: How do I know if I have Java?:**<br>
+
+1. Open Command Prompt by pressing Windows/Apple key
+2. Type java --version
+3. If you have Java installed, it will output the version number. Otherwise, it will output an error.
+
+</div>
+
+
+1. Ensure you have Java `11` or above installed in your Computer. Otherwise, you can get it [here](https://www.oracle.com/java/technologies/downloads/)
+
+1. Download the latest [ModuleMateFinder.jar](https://github.com/AY2122S2-CS2103T-T13-4/tp/releases).
 
 1. Copy the file to the folder you want to use as the _home folder_ for your ModuleMateFinder.
 
@@ -414,11 +426,11 @@ _Details coming soon ..._
 
 Q: Are all modules offered by NUS available in ModuleMateFinder
 
-A: As long as the module offered can be found in NUSmod, it will be available on ModuleMateFinder as well.  
+A: As long as the module offered can be found in NUSMods, it will be available on ModuleMateFinder as well.  
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Command summary
+## Command Summary
 
 | Action            | Format                                                                                               | Examples                               |
 |-------------------|------------------------------------------------------------------------------------------------------|----------------------------------------|
