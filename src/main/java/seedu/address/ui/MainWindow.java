@@ -1,5 +1,6 @@
 package seedu.address.ui;
 
+import java.nio.file.Path;
 import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
@@ -12,13 +13,15 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import seedu.address.commons.core.BookNames;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.Logic;
+import seedu.address.logic.commands.ArchiveCommand;
 import seedu.address.logic.commands.CommandResult;
+import seedu.address.logic.commands.SwitchCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
-
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -41,9 +44,13 @@ public class MainWindow extends UiPart<Stage> {
     private AddWindow addWindow;
     private EditWindow editWindow;
 
+    private StatusBarFooter statusBarFooter;
 
     @FXML
     private StackPane commandBoxPlaceholder;
+
+    @FXML
+    private MenuItem switchMenuItem;
 
     @FXML
     private MenuItem helpMenuItem;
@@ -91,6 +98,7 @@ public class MainWindow extends UiPart<Stage> {
 
     private void setAccelerators() {
         setAccelerator(helpMenuItem, KeyCombination.valueOf("F1"));
+        setAccelerator(switchMenuItem, KeyCombination.valueOf("F10"));
     }
 
     /**
@@ -132,8 +140,9 @@ public class MainWindow extends UiPart<Stage> {
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
-
-        StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getAddressBookFilePath());
+        Path defaultPath = logic.getAddressBookFilePath();
+        Path archivePath = logic.getArchivedAddressBookFilePath();
+        statusBarFooter = new StatusBarFooter(logic.getAddressBookFilePath(), defaultPath, archivePath);
         statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
@@ -206,6 +215,39 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     /**
+     * GUI alternative to activate a SwitchCommand.
+     */
+    @FXML
+    private void handleSwitchMenu() throws CommandException, ParseException {
+        logger.info("Switch Menu Item fired!!!");
+        executeCommand(SwitchCommand.COMMAND_WORD);
+    }
+    /**
+     * Function to perform operations involving logic object
+     */
+    private void handleSwitch() throws CommandException, ParseException {
+        logger.info("Handle Switch fired!");
+        logic.switchAddressBook();
+
+        resultDisplay.setFeedbackToUser("Switched to: " + statusBarFooter.updateBookPath());
+
+        boolean isDefaultNext = StatusBarFooter.isArchiveBook();
+        if (isDefaultNext) {
+            switchMenuItem.setText(String.format("Switch to %s", BookNames.BOOKNAME_DEFAULT));
+        } else {
+            switchMenuItem.setText(String.format("Switch to %s", BookNames.BOOKNAME_ARCHIVED));
+        }
+    }
+
+    /**
+     * Function to archive the selected person's information
+     */
+    private void handleArchive(CommandResult result) throws CommandException {
+        String oneBasedTarget = result.getFeedbackToUser();
+        logic.archivePersonByIndex(oneBasedTarget);
+    }
+
+    /**
      * Copy to the clipboard the selected person's information.
      */
     private void handleCopy(CommandResult result) {
@@ -233,10 +275,19 @@ public class MainWindow extends UiPart<Stage> {
             if (commandResult.isCopyCommand()) {
                 resultDisplay.setFeedbackToUser("Successfully copied to clipboard!\n");
                 handleCopy(commandResult);
+            } else if (commandResult.isArchiveCommand()) {
+                String archiveMode = commandResult.getArchiveMode();
+                if (archiveMode.equals(ArchiveCommand.COMMAND_WORD)) {
+                    resultDisplay.setFeedbackToUser(String.format(ArchiveCommand.MESSAGE_ARCHIVE_PERSON_SUCCESS,
+                            commandResult.getFeedbackToUser()));
+                } else if (archiveMode.equals(ArchiveCommand.ALT_COMMAND_WORD)) {
+                    resultDisplay.setFeedbackToUser(String.format(ArchiveCommand.MESSAGE_UNARCHIVE_PERSON_SUCCESS,
+                            commandResult.getFeedbackToUser()));
+                }
+                handleArchive(commandResult);
             } else {
                 resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
             }
-
 
             if (commandResult.isShowHelp()) {
                 handleHelp();
@@ -248,6 +299,10 @@ public class MainWindow extends UiPart<Stage> {
 
             if (commandResult.isShowEdit()) {
                 handleEdit();
+            }
+
+            if (commandResult.isSwitchCommand()) {
+                handleSwitch();
             }
 
 
