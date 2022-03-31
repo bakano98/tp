@@ -61,12 +61,14 @@ Given below are my contributions to the project.
   - Ensure team was on track
   - Ensure I kept everyone up to date with what I was doing
   - Tried to keep up and help with features that were lagging behind
+
 - **Documentation**:
   - User Guide:
     - Set up overall UG style [(PR #1)](https://github.com/AY2122S2-CS2103T-T13-4/tp/commit/1aa81e2c5590653463a84a972c678f447c979a29)
     - Set up Quick Jump for UG [(PR #1)](https://github.com/AY2122S2-CS2103T-T13-4/tp/commit/1aa81e2c5590653463a84a972c678f447c979a29)
     - Added `AddWindow` image and functionality [(PR #77)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/77)
     - Added `EditWindow` image and functionality [(PR #81)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/81)
+    - Added `archive`, `unarchive`, `switch` explanation and functionality [(PR #124)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/124)
     - Updated UG according to peer feedback [(PR #100)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/100)
     - Updated UG according to CS2101 feedback [(PR #112)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/112/commits/f1ec6be1bdb557101201b979c440d769ff4cff61)
   - Developer Guide:
@@ -75,6 +77,8 @@ Given below are my contributions to the project.
   - README:
     - Did the mockup UI and the description of ModuleMateFinder [here](https://github.com/AY2122S2-CS2103T-T13-4/tp/commit/f054e1d2871e6e5904d473b9203e7874340f0633) 
 
+**Bugfixes**
+- See [here](https://github.com/AY2122S2-CS2103T-T13-4/tp/issues?q=assignee%3Abakano98+label%3Atype.Bug+)
 
 **Community**
 - Reviewed all PRs done by Julio and Bryan
