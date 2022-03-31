@@ -28,6 +28,12 @@ Given below are my contributions to the project.
   - **Highlights**: This feature was relatively challenging despite being similar to `find` command. It required a proper analysis of `find` in order to understand the inner workings of it, and then following a similar implementation of it.
   - **Credits**: Main idea of implementing `filter` is derived from `find`
 
+- **New Feature**: Added the ability to unarchive users from `archiveBook`, revamped underlying architecture of `archive` command. [(PR #135)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/135)
+  - **What it does**: Allows you to archive/unarchive contacts in ModuleMate Finder.
+  - **Justification**: This features improves the product as it allows users to organise their contacts better. For example, they can put all graduate students in `archive`, and keep them in mind in the event they want to contact them for module feedback.
+  - **Highlights**: This was a tough feature to implement. I had to modify the underlying architecture (in `Model`) in order to fit another `AddressBook`. This additional `AddressBook` is used as a reference for `archiveBook`. With these changes, methods have to be made with respect to `archiveBook`, and then we need a way to identify which `AddressBook` we're currently in. This is retrieved through GUI methods.
+  - **Enhancements**: I binded the `switch`, which allows you to switch between `archiveBook` or `addressBook` to `F10` key. [(PR #)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/122) I also disabled `add`, `archive` when in `archiveBook`, and disabled `unarchive` when in `addressBook`.
+  - **Credits**: Thanks to Bryan for implementing the base feature, where I then expanded and revamped along the way.
 
 - **New Feature**: Added GUI, `AddWindow` for adding a new Person into ModuleMateFinder. [(PR #46)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/46)
   - **What it does**: Allows users to add a new contact into ModuleMateFinder.
@@ -43,7 +49,7 @@ Given below are my contributions to the project.
   - **Highlights**: This feature is similar to `AddWindow`, so only a few changes needed to be made.
   - **Enhancements**: Reset focus onto first `TextField` when window loses focus. Binded `ENTER` key to act as a `Submit` button, as long as the given input is valid. [(PR #102)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/102)
   - **Credits**: Some code reuse from `HelpWindow`, which served as the _baseline_ to start implementation of `EditWindow`
-
+  
 
 - **GUI Update**: Recoloured GUI, and moved certain fields around. [(PR #112)](https://github.com/AY2122S2-CS2103T-T13-4/tp/pull/112)
   - **What it does**: Makes ModuleMateFinder more distinct and recognisable with a new colour theme. 
